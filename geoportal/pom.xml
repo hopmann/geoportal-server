@@ -211,6 +211,12 @@
 			<artifactId>arcgis_agsws_stubs</artifactId>
 			<version>10.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.n52.geolabel</groupId>
+			<artifactId>jsf</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

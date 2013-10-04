@@ -17,6 +17,7 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
 <%@ taglib prefix="gpt" uri="http://www.esri.com/tags-gpt"%>
+<%@ taglib prefix="geolabel" uri="http://www.geolabel.net"%>
 
 <gpt:jscriptVariable 
    quoted="false" value="#{SearchController.serviceCheckerEnabled}" 
@@ -565,23 +566,32 @@ function rsGetQualityOfService() {
 				onmouseout="javascript:rsUnhighlightRecord(this);"
 				styleClass="noneSelectedResultRow" width="100%"
 				columnClasses="metadataCntTypIcon,metadataInfoSection,metadataExpansionGifSection">
-	
-				<% // Icon and title %>
-				<h:panelGroup>
-				  <h:graphicImage id="smallImgContentType" 
-				    height="16px" width="16px" 
-				    alt="#{record.contentTypeLink.label}"
-				    value="#{record.contentTypeLink.url}" 
-				    title="#{record.contentTypeLink.label}"
-				    onmouseover="javascript:this.style.cursor='pointer';"
-				    onmouseout="javascript:this.style.cursor='default'"
-				    styleClass="resultsIcon" />
-				  <h:outputLink id="recLnkTitle"
-				    value="javascript:void(0)"
-            onclick="javascript:return rsExpandRecord(#{dTable.dataTable.rowIndex});">
-					  <h:outputText styleClass="resultsTitle" id="recTxtTitle" value="#{record.title}" />
-					</h:outputLink>
-					
+				
+				<h:panelGroup style="position:relative;width:100%;height:50px;display:block">
+						
+						<%
+							// Icon and title
+						%>
+						<h:panelGroup style="margin-right:55px;display:block;">
+							<h:graphicImage id="smallImgContentType" height="16px"
+								width="16px" value="#{record.contentTypeLink.url}"
+								title="#{record.contentTypeLink.label}"
+								onmouseover="javascript:this.style.cursor='pointer';"
+								onmouseout="javascript:this.style.cursor='default'"
+								styleClass="resultsIcon" />
+							<h:outputLink id="recLnkTitle" value="javascript:void(0)"
+								onclick="javascript:return rsExpandRecord(#{dTable.dataTable.rowIndex});">
+								<h:outputText styleClass="resultsTitle" id="recTxtTitle"
+									value="#{record.title}" />
+							</h:outputLink>
+						</h:panelGroup>
+
+						<h:panelGroup style="position:absolute;right:0px;top:0px;">
+
+							<geolabel:geolabel
+								metadataUrl="#{geoLabelHelper.getFullMetadataUrl(record)}" forceDownload="true"
+								size="50" async="false"></geolabel:geolabel>
+						</h:panelGroup>
 				</h:panelGroup>
 				
 				<% // record content %>
