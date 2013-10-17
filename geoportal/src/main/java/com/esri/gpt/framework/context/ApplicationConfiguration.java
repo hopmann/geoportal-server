@@ -19,6 +19,7 @@ import com.esri.gpt.control.download.DownloadConfiguration;
 import com.esri.gpt.control.webharvest.engine.HarvesterConfiguration;
 import com.esri.gpt.control.webharvest.protocol.ProtocolFactories;
 import com.esri.gpt.framework.ArcGIS.InteractiveMap;
+import com.esri.gpt.framework.geolabel.GEOLabelConfiguration;
 import com.esri.gpt.framework.mail.MailConfiguration;
 import com.esri.gpt.framework.scheduler.ThreadSchedulerConfiguration;
 import com.esri.gpt.framework.security.identity.IdentityAdapter;
@@ -53,6 +54,7 @@ private MetadataAccessPolicy _metadataAccessPolicy;
 private String _version = "";
 private HarvesterConfiguration _harvesterConfiguration = new HarvesterConfiguration();
 private ProtocolFactories _protocolFactories = new ProtocolFactories();
+private GEOLabelConfiguration _geoLabelConfiguration = new GEOLabelConfiguration();
 
 // constructors ================================================================
 /** Default constructor. */
@@ -255,6 +257,25 @@ protected void setVersion(String version) {
   _version = Val.chkStr(version);
 }
 
+/**
+ * Gets the GEOLabel configuration associated with this application.
+ * @return the GEO label configuration
+ */
+public GEOLabelConfiguration getGEOLabelConfiguration() {
+  return _geoLabelConfiguration;
+}
+
+/**
+ * Sets the mail configuration associated with this application.
+ * @param configuration the mail configuration
+ */
+private void setGEOLabelConfiguration(GEOLabelConfiguration configuration) {
+  _geoLabelConfiguration  = configuration;
+  if (_geoLabelConfiguration == null) {
+	  _geoLabelConfiguration = new GEOLabelConfiguration();
+  }
+}
+
 // methods =====================================================================
 /**
  * Instantiates a new Identity adapter.
@@ -309,4 +330,5 @@ public String toString() {
   sb.append(") ===== end ").append(getClass().getName());
   return sb.toString();
 }
+
 }
