@@ -18,7 +18,7 @@
 
     <databaseReference name="gpt" jndiName="jdbc/gpt"/>
     
-    <geolabel serviceEndpoint="http://geoviqua.dev.52north.org/glbservice/api/svg"/>
+    <geolabel serviceEndpoint="http://geoviqua.dev.52north.org/glbservice/api/v1/svg"/>
     
     <!-- Mail server configuration.
         - smtpHost: mail server SMTP host
