@@ -1,7 +1,6 @@
 package com.esri.gpt.framework.jsf;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 
 import com.esri.gpt.catalog.search.ASearchEngine;
 import com.esri.gpt.catalog.search.SearchCriteria;
@@ -12,8 +11,7 @@ import com.esri.gpt.catalog.search.SearchResultRecord;
 import com.esri.gpt.framework.context.ApplicationContext;
 import com.esri.gpt.framework.util.Val;
 
-@ManagedBean
-public class GeoLabelHelper extends BaseActionListener {
+public class GEOLabelHelper extends BaseActionListener {
 
 	public String getFullMetadataUrl(SearchResultRecord record) {
 		if (record == null) {
@@ -21,6 +19,7 @@ public class GeoLabelHelper extends BaseActionListener {
 		}
 		ASearchEngine engine;
 		try {
+			
 			engine = SearchEngineFactory.createSearchEngine(new SearchCriteria(), new SearchResult(), this
 					.extractRequestContext(), record.getExternalId(), this.getContextBroker().extractMessageBroker());
 			return Val.chkStr(engine.getMetadataUrl(record.getUuid()));

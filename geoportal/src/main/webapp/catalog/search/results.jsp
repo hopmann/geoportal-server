@@ -587,10 +587,9 @@ function rsGetQualityOfService() {
 						</h:panelGroup>
 
 						<h:panelGroup style="position:absolute;right:0px;top:0px;">
-
 							<geolabel:geolabel
-								metadataUrl="#{geoLabelHelper.getFullMetadataUrl(record)}" forceDownload="true"
-								size="50" async="false" serviceUrl="#{geoLabelHelper.serviceEndpoint}"></geolabel:geolabel>
+								metadataUrl="#{GEOLabelHelper.getFullMetadataUrl(record)}" forceDownload="true"
+								size="50" async="false" serviceUrl="#{GEOLabelHelper.serviceEndpoint}" />
 						</h:panelGroup>
 				</h:panelGroup>
 				

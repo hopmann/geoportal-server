@@ -493,6 +493,13 @@
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>   
   
+  <!-- GEO label helper -->
+  <managed-bean>
+    <managed-bean-name>GEOLabelHelper</managed-bean-name>
+    <managed-bean-class>com.esri.gpt.framework.jsf.GEOLabelHelper</managed-bean-class> 
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>   
+  
   <!-- define the navigation rules -->
   <navigation-rule>
     <from-view-id>/*</from-view-id>
