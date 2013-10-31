@@ -20,6 +20,12 @@
 		</license>
 	</licenses>
 
+	<properties>
+		<!-- Config for single administrative user, for simple inclusion of gpt.xml config in maven build process -->
+		<identity.simpleAdapter.username>geoportal</identity.simpleAdapter.username>
+		<identity.simpleAdapter.password>pass</identity.simpleAdapter.password>
+	</properties>
+
 	<dependencies>
 
 		<dependency>
