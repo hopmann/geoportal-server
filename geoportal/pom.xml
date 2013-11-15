@@ -228,6 +228,13 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -275,7 +282,7 @@
 					<plugin>
 						<artifactId>maven-war-plugin</artifactId>
 						<configuration>
-						    <!-- Use specific database contexts etc. copied to META-INF -->
+							<!-- Use specific database contexts etc. copied to META-INF -->
 							<containerConfigXML>${user.home}/.m2/geoportal/context.xml</containerConfigXML>
 						</configuration>
 					</plugin>
