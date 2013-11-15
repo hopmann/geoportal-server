@@ -19,7 +19,7 @@
     <databaseReference name="gpt" jndiName="jdbc/gpt"/>
     
     <!-- GEO label service to be used for generating GEO label representations -->
-    <geolabel serviceEndpoint="http://geoviqua.dev.52north.org/glbservice/api/v1/svg"/>
+    <geolabel serviceEndpoint="${geolabel.serviceEndpoint}"/>
     
     <!-- Mail server configuration.
         - smtpHost: mail server SMTP host
@@ -58,8 +58,8 @@
     
     <interactiveMap
         jsapiUrl="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.5"
-        mapServiceUrl="http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_Imagery_World_2D/MapServer"
-        mapServiceType="dynamic" 
+        mapServiceUrl=""
+        mapServiceType="openstreet" 
         geometryServiceUrl="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"
         locatorUrl=""
         locatorSingleFieldParameter = "city"/>
@@ -76,7 +76,7 @@
     -->
       
     <lucene
-        indexLocation="C:/geoportal/lucene-index"
+        indexLocation="${lucene.indexLocation}"
         writeLockTimeout="60000"
         useNativeFSLockFactory="true"
         analyzerClassName="org.apache.lucene.analysis.standard.StandardAnalyzer">

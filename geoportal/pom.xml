@@ -24,6 +24,8 @@
 		<!-- Config for single administrative user, for simple inclusion of gpt.xml config in maven build process -->
 		<identity.simpleAdapter.username>geoportal</identity.simpleAdapter.username>
 		<identity.simpleAdapter.password>pass</identity.simpleAdapter.password>
+		<lucene.indexLocation>C:/geoportal/lucene-index</lucene.indexLocation>
+		<geolabel.serviceEndpoint>http://geoviqua.dev.52north.org/glbservice/api/v1/svg</geolabel.serviceEndpoint>
 	</properties>
 
 	<dependencies>
